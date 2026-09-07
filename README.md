@@ -7,7 +7,7 @@
 [![build](https://github.com/remarkablegames/renpy-gallery/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/renpy-gallery/actions/workflows/build.yml)
 [![lint](https://github.com/remarkablegames/renpy-gallery/actions/workflows/lint.yml/badge.svg)](https://github.com/remarkablegames/renpy-gallery/actions/workflows/lint.yml)
 
-📖 Ren'Py Gallery demo:
+🖼️ Ren'Py Gallery demo:
 
 - [remarkablegames](https://remarkablegames.org/renpy-gallery/)
 
