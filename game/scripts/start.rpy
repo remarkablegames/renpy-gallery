@@ -1,25 +1,27 @@
-# The game starts here.
-
 label start:
-
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
 
     scene bg club
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
+    # Show expressions will automatically unlock gallery images.
     show eileen happy
 
-    # These display lines of dialogue.
+    e "Welcome to Ren'Py gallery!"
 
-    e "You've created a new Ren'Py game."
+    e concerned "I'm feeling a bit concerned about the gallery implementation."
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    e vhappy "But now I'm very happy that it's working!"
 
-    # Jump to a label.
+    menu:
+        "Unlock Lucy gallery":
+            $ persistent.unlock_lucy = True
+            $ renpy.save_persistent()
+
+            e "Lucy's gallery has been unlocked!"
+
+        "Lock Lucy gallery":
+            $ persistent.unlock_lucy = False # persistent._clear()
+            $ renpy.save_persistent()
+
+            e "Lucy's gallery has been locked!"
 
     jump end

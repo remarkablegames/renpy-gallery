@@ -313,6 +313,8 @@ screen navigation():
 
         textbutton _("Load") action ShowMenu("load")
 
+        textbutton _("Gallery") action ShowMenu("gallery")
+
         textbutton _("Preferences") action ShowMenu("preferences")
 
         if _in_replay:
@@ -1141,6 +1143,105 @@ style help_label_text:
 ################################################################################
 ## Additional screens
 ################################################################################
+
+
+## Gallery screen ##############################################################
+##
+## This screen displays the CG gallery with unlocked images in a grid layout.
+
+screen gallery_button_item(button_name, unlock_image, label_text):
+
+    frame:
+        xsize 200
+        ysize 200
+        
+        has fixed:
+            add g.make_button(button_name, unlock_image) xalign 0.5 yalign 0.3
+            text label_text:
+                size 20
+                xalign 0.5
+                yalign 1.0
+                yoffset -10
+
+screen gallery():
+
+    tag menu
+
+    use game_menu(_("Gallery"), scroll="viewport"):
+
+        style_prefix "gallery"
+
+        python:
+            # game/images/unlock.png
+            bg_gallery_items = [
+                ["bg_club", "unlock", "Club"],
+                ["bg_school", "unlock", "School"],
+                ["bg_meadow", "unlock", "Meadow"],
+            ]
+
+            eileen_gallery_items = [
+                ["eileen_concerned", "unlock", "Concerned"],
+                ["eileen_happy", "unlock", "Happy"],
+                ["eileen_vhappy", "unlock", "Very Happy"],
+            ]
+
+            lucy_gallery_items = [
+                ["lucy", "unlock", "Lucy"],
+            ]
+
+            sylvie_gallery_items = [
+                ["sylvie_blue", "unlock", "Sylvie Blue"],
+                ["sylvie_green", "unlock", "Sylvie Green"],
+            ]
+
+        vbox:
+            spacing 20
+
+            ## Backgrounds section
+            label _("Backgrounds")
+            null height 10
+
+            grid 3 1:
+                spacing 10
+
+                for button_name, unlock_image, label_text in bg_gallery_items:
+                    use gallery_button_item(button_name, unlock_image, label_text)
+
+            null height 30
+
+            ## Eileen section
+            label _("Eileen")
+            null height 10
+
+            grid 3 1:
+                spacing 10
+
+                for button_name, unlock_image, label_text in eileen_gallery_items:
+                    use gallery_button_item(button_name, unlock_image, label_text)
+
+            null height 30
+
+            ## Lucy section
+            label _("Lucy")
+            null height 10
+
+            grid 3 1:
+                spacing 10
+
+                for button_name, unlock_image, label_text in lucy_gallery_items:
+                    use gallery_button_item(button_name, unlock_image, label_text)
+
+            null height 30
+
+            ## Sylvie section
+            label _("Sylvie")
+            null height 10
+
+            grid 3 1:
+                spacing 10
+
+                for button_name, unlock_image, label_text in sylvie_gallery_items:
+                    use gallery_button_item(button_name, unlock_image, label_text)
 
 
 ## Confirm screen ##############################################################
