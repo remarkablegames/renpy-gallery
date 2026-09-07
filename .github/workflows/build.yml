@@ -25,7 +25,6 @@ jobs:
           find . -type f
           ! -name 'icon.*'
           ! -name 'progressive_download.txt'
-          ! -name 'version.txt'
           ! -name 'web-*'
           ! -path '*/.*'
           ! -path './game/*'
