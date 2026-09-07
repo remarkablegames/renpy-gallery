@@ -16,6 +16,7 @@
 ### Art
 
 - [Uncle Mugen](https://lemmasoft.renai.us/forums/viewtopic.php?t=17302)
+- [Lock free icon](https://www.flaticon.com/free-icon/lock_891399)
 
 ### Audio
 
