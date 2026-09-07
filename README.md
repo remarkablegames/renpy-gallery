@@ -1,24 +1,15 @@
 <p align="center">
-  <img src="web-icon.png" width="250" alt="Ren'Py Template">
+  <img src="web-icon.png" width="250" alt="Ren'Py Gallery">
 </p>
 
-# Ren'Py Template
+# Ren'Py Gallery
 
-[![release](https://img.shields.io/github/v/release/remarkablegames/renpy-template)](https://github.com/remarkablegames/renpy-template/releases)
-[![build](https://github.com/remarkablegames/renpy-template/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/renpy-template/actions/workflows/build.yml)
-[![lint](https://github.com/remarkablegames/renpy-template/actions/workflows/lint.yml/badge.svg)](https://github.com/remarkablegames/renpy-template/actions/workflows/lint.yml)
+[![build](https://github.com/remarkablegames/renpy-gallery/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/renpy-gallery/actions/workflows/build.yml)
+[![lint](https://github.com/remarkablegames/renpy-gallery/actions/workflows/lint.yml/badge.svg)](https://github.com/remarkablegames/renpy-gallery/actions/workflows/lint.yml)
 
-📖 Write visual novels with Ren'Py Template.
+📖 Ren'Py Gallery demo:
 
-Play in your browser:
-
-- [remarkablegames](https://remarkablegames.org/renpy-template/)
-
-Or download for desktop:
-
-- [Windows](https://github.com/remarkablegames/renpy-template/releases/latest/download/win.zip)
-- [Mac](https://github.com/remarkablegames/renpy-template/releases/latest/download/mac.zip)
-- [Linux](https://github.com/remarkablegames/renpy-template/releases/latest/download/pc.zip)
+- [remarkablegames](https://remarkablegames.org/renpy-gallery/)
 
 ## Credits
 
@@ -55,28 +46,9 @@ renpy --version
 Clone the repository to the `Projects Directory`:
 
 ```sh
-git clone https://github.com/remarkablegames/renpy-template.git
-cd renpy-template
+git clone https://github.com/remarkablegames/renpy-gallery.git
+cd renpy-gallery
 ```
-
-Rename the project:
-
-```sh
-git grep -l "Ren'Py Template" | xargs sed -i '' -e "s/Ren'Py Template/My Novel/g"
-```
-
-```sh
-git grep -l 'renpy-template' | xargs sed -i '' -e 's/renpy-template/my-novel/g'
-```
-
-Replace the assets:
-
-- [ ] `game/gui/main_menu.png`
-- [ ] `game/gui/window_icon.png`
-- [ ] [`icon.icns`](https://anyconv.com/png-to-icns-converter/)
-- [ ] [`icon.ico`](https://anyconv.com/png-to-ico-converter/)
-- [ ] `web-icon.png`
-- [ ] `web-presplash.webp`
 
 ## Run
 
