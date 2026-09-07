@@ -11,6 +11,11 @@
 
 - [remarkablegames](https://remarkablegames.org/renpy-gallery/)
 
+## Features
+
+- Gallery screen and textbutton in `game/screens.rpy`
+- Gallery configuration in `game/scripts/gallery.rpy`
+
 ## Credits
 
 ### Art
