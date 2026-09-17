@@ -1149,14 +1149,14 @@ style help_label_text:
 ##
 ## This screen displays the CG gallery with unlocked images in a grid layout.
 
-screen gallery_button_item(button_name, unlock_image, label_text):
+screen gallery_button_item(button_name, unlock_image, label_text, locked_image=None):
 
     frame:
         xsize 200
         ysize 200
 
         has fixed:
-            add g.make_button(button_name, unlock_image) xalign 0.5 yalign 0.3
+            add g.make_button(button_name, unlock_image, locked_image) xalign 0.5 yalign 0.3
             text label_text:
                 size 20
                 xalign 0.5
@@ -1173,13 +1173,13 @@ screen gallery():
         style_prefix "gallery"
 
         python:
-            # game/images/unlock.png
             bg_gallery_items = [
-                ["bg_club", "unlock", "Club"],
-                ["bg_school", "unlock", "School"],
-                ["bg_meadow", "unlock", "Meadow"],
+                ["bg_club", "bg club", "Club"],
+                ["bg_school", "bg lecturehall", "School"],
+                ["bg_meadow", "bg meadow", "Meadow"],
             ]
 
+            # game/images/unlock.png
             eileen_gallery_items = [
                 ["eileen_concerned", "unlock", "Concerned"],
                 ["eileen_happy", "unlock", "Happy"],
@@ -1205,8 +1205,13 @@ screen gallery():
             grid 3 1:
                 spacing 10
 
-                for button_name, unlock_image, label_text in bg_gallery_items:
-                    use gallery_button_item(button_name, unlock_image, label_text)
+                for button_name, image, label_text in bg_gallery_items:
+                    use gallery_button_item(
+                        button_name,
+                        gallery_thumb(image),
+                        label_text,
+                        gallery_locked_thumb(image),
+                    )
 
             null height 30
 

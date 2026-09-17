@@ -67,6 +67,12 @@ init python:
     # The transition used when switching images.
     g.transition = dissolve
 
+    def gallery_thumb(image):
+        return Transform(image, maxsize=(190, 190))
+
+    def gallery_locked_thumb(image):
+        return Transform(image, maxsize=(190, 190), matrixcolor=SaturationMatrix(0.0))
+
 
 init python:
     def unlock_gallery_image_with_password():
