@@ -1,6 +1,10 @@
 # Gallery Configuration
 # https://www.renpy.org/doc/html/rooms.html
 
+
+default persistent.unlock_with_password = False
+
+
 init python:
     g = Gallery()
 
@@ -51,11 +55,31 @@ init python:
     g.image("bg uni", "sylvie blue giggle")
     g.image("bg uni", "sylvie blue surprised")
 
+    # This is gated behind a password. Use image (not unlock_image) so the
+    # images don't also require having been seen in-game.
     g.button("sylvie_green")
-    g.unlock_image("bg lecturehall", "sylvie green normal")
-    g.unlock_image("bg lecturehall", "sylvie green smile")
-    g.unlock_image("bg lecturehall", "sylvie green giggle")
-    g.unlock_image("bg lecturehall", "sylvie green surprised")
+    g.condition("persistent.unlock_with_password")
+    g.image("bg lecturehall", "sylvie green normal")
+    g.image("bg lecturehall", "sylvie green smile")
+    g.image("bg lecturehall", "sylvie green giggle")
+    g.image("bg lecturehall", "sylvie green surprised")
 
     # The transition used when switching images.
     g.transition = dissolve
+
+
+init python:
+    def unlock_gallery_image_with_password():
+        entered = renpy.invoke_in_new_context(
+            renpy.input,
+            "Enter the password to unlock Sylvie Green:",
+            mask="*",
+            _clear_layers=False,
+        )
+
+        if entered == "password":
+            persistent.unlock_with_password = True
+            renpy.save_persistent()
+            renpy.restart_interaction()
+        else:
+            renpy.notify("Wrong password.")

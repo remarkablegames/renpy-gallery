@@ -1154,7 +1154,7 @@ screen gallery_button_item(button_name, unlock_image, label_text):
     frame:
         xsize 200
         ysize 200
-        
+
         has fixed:
             add g.make_button(button_name, unlock_image) xalign 0.5 yalign 0.3
             text label_text:
@@ -1162,6 +1162,7 @@ screen gallery_button_item(button_name, unlock_image, label_text):
                 xalign 0.5
                 yalign 1.0
                 yoffset -10
+
 
 screen gallery():
 
@@ -1242,6 +1243,11 @@ screen gallery():
 
                 for button_name, unlock_image, label_text in sylvie_gallery_items:
                     use gallery_button_item(button_name, unlock_image, label_text)
+
+            if not persistent.unlock_with_password:
+                textbutton _("Unlock Sylvie Green with password"):
+                    action Function(unlock_gallery_image_with_password)
+                    text_size 24
 
 
 ## Confirm screen ##############################################################

@@ -15,6 +15,7 @@
 
 - Gallery screen and textbutton in `game/screens.rpy`
 - Gallery configuration in `game/scripts/gallery.rpy`
+- Password-protected gallery image and button in `game/scripts/gallery.rpy`
 
 ## Credits
 
