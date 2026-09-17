@@ -1149,7 +1149,7 @@ style help_label_text:
 ##
 ## This screen displays the CG gallery with unlocked images in a grid layout.
 
-screen gallery_button_item(button_name, unlock_image, label_text, locked_image=None):
+screen gallery_button_item(button_name, label_text, unlock_image, locked_image=None):
 
     frame:
         xsize 200
@@ -1162,6 +1162,7 @@ screen gallery_button_item(button_name, unlock_image, label_text, locked_image=N
                 xalign 0.5
                 yalign 1.0
                 yoffset -10
+                outlines [(2, "#000", 0, 0)]
 
 
 screen gallery():
@@ -1179,20 +1180,19 @@ screen gallery():
                 ["bg_meadow", "bg meadow", "Meadow"],
             ]
 
-            # game/images/unlock.png
             eileen_gallery_items = [
-                ["eileen_concerned", "unlock", "Concerned"],
-                ["eileen_happy", "unlock", "Happy"],
-                ["eileen_vhappy", "unlock", "Very Happy"],
+                ["eileen_concerned", "eileen concerned", "Concerned"],
+                ["eileen_happy", "eileen happy", "Happy"],
+                ["eileen_vhappy", "eileen vhappy", "Very Happy"],
             ]
 
             lucy_gallery_items = [
-                ["lucy", "unlock", "Lucy"],
+                ["lucy", "lucy happy", "Lucy"],
             ]
 
             sylvie_gallery_items = [
-                ["sylvie_blue", "unlock", "Sylvie Blue"],
-                ["sylvie_green", "unlock", "Sylvie Green"],
+                ["sylvie_blue", "sylvie blue normal", "Sylvie Blue"],
+                ["sylvie_green", "sylvie green normal", "Sylvie Green"],
             ]
 
         vbox:
@@ -1208,8 +1208,8 @@ screen gallery():
                 for button_name, image, label_text in bg_gallery_items:
                     use gallery_button_item(
                         button_name,
-                        gallery_thumb(image),
                         label_text,
+                        gallery_thumb(image),
                         gallery_locked_thumb(image),
                     )
 
@@ -1222,8 +1222,13 @@ screen gallery():
             grid 3 1:
                 spacing 10
 
-                for button_name, unlock_image, label_text in eileen_gallery_items:
-                    use gallery_button_item(button_name, unlock_image, label_text)
+                for button_name, image, label_text in eileen_gallery_items:
+                    use gallery_button_item(
+                        button_name,
+                        label_text,
+                        gallery_thumb(image),
+                        gallery_locked_thumb(image),
+                    )
 
             null height 30
 
@@ -1234,8 +1239,14 @@ screen gallery():
             grid 3 1:
                 spacing 10
 
-                for button_name, unlock_image, label_text in lucy_gallery_items:
-                    use gallery_button_item(button_name, unlock_image, label_text)
+                for button_name, image, label_text in lucy_gallery_items:
+                    use gallery_button_item(
+                        button_name,
+                        label_text,
+                        gallery_thumb(image),
+                        # Show lock image
+                        locked_image=None,
+                    )
 
             null height 30
 
@@ -1246,8 +1257,13 @@ screen gallery():
             grid 3 1:
                 spacing 10
 
-                for button_name, unlock_image, label_text in sylvie_gallery_items:
-                    use gallery_button_item(button_name, unlock_image, label_text)
+                for button_name, image, label_text in sylvie_gallery_items:
+                    use gallery_button_item(
+                        button_name,
+                        label_text,
+                        gallery_thumb(image),
+                        gallery_locked_thumb(image),
+                    )
 
             if not persistent.unlock_with_password:
                 textbutton _("Unlock Sylvie Green with password"):
