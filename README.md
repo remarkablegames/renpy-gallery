@@ -15,6 +15,10 @@
 
 - Gallery screen in [game/screens.rpy](game/screens.rpy)
 - Gallery configuration in [game/scripts/gallery.rpy](game/scripts/gallery.rpy)
+  - Auto-unlocking seen images
+  - Condition-based image unlocking
+  - Composed images (character art on top of backgrounds)
+  - Grayscale thumbnails for locked images, color thumbnails for unlocked images
   - Password-protected gallery image
 
 ## Credits
