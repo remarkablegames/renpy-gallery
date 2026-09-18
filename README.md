@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="web-icon.png" width="250" alt="Ren'Py Gallery">
+  <img src="game/images/lock.png" alt="Ren'Py Gallery">
 </p>
 
 # Ren'Py Gallery
